@@ -4,15 +4,7 @@ import { useState } from "react";
 
 export default function Home() {
 
-    const [registro, setRegistro] = useState("")
 
-    function listaAtividades() {
-        if (registro === "") {
-            return "Não há registros de entrada ou saída"
-        } else {
-            return registro
-        }
-    }
 
     return (
         <Container>
