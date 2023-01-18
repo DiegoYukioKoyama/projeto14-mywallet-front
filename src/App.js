@@ -3,6 +3,8 @@ import Login from './Pages/LoginPage/Login';
 import SignUp from './Pages/SignUpPage/SignUp';
 import Home from "./Pages/HomePage/Home";
 import NovaEntrada from './Pages/Nova-EntradaPage/NovaEntrada';
+import NovaSaida from './Pages/Nova-SaidaPage/NovaSaida';
+
 
 export default function App() {
   return (
@@ -12,6 +14,7 @@ export default function App() {
         <Route path="/cadastro" element={<SignUp />} />
         <Route path="/home" element={<Home />} />
         <Route path="/nova-entrada" element={<NovaEntrada />} />
+        <Route path="/nova-saida" element={<NovaSaida />} />
       </Routes>
     </BrowserRouter>
   );

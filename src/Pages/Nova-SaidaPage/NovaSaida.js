@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Container, Form } from "./styled";
 
 
-export default function NovaEntrada(){
+export default function NovaSaida(){
 
     const [form, setForm] = useState({
         price: "",
@@ -18,7 +18,7 @@ export default function NovaEntrada(){
 
     return (
         <Container>
-            <h1>Nova entrada</h1>
+            <h1>Nova saída</h1>
             <Form>
                 <input type="number" onChange={handleForm} value={form.price} required step="0.01" name="price" min="0.01" placeholder="Valor" />
                 <input type="text" onChange={handleForm} value={form.description} required name="description" placeholder="Descrição" />
