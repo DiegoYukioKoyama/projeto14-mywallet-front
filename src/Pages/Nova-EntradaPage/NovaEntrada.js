@@ -1,14 +1,21 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../Contexts/UserContext";
+import apiEntry from "../../Services/apiEntries";
 import { Container, Form } from "./styled";
 
 
-export default function NovaEntrada(){
+export default function NovaEntrada() {
 
     const [form, setForm] = useState({
         price: "",
         description: ""
     })
 
+    const {user} = useContext(UserContext)
+    const navigate = useNavigate(
+
+    )
     function handleForm(e) {
         setForm({
             ...form,
@@ -16,12 +23,26 @@ export default function NovaEntrada(){
         })
     }
 
+    function handleNewEntry(e) {
+        apiEntry.newEntry(form, user.token)
+            .then(resp => {
+                navigate("/home")
+            })
+            .catch(err => {
+                if (!user.token) {
+                    alert("Faça login")
+                } else {
+                    alert(err.response.data.message)
+                }
+            })
+    }
+
     return (
         <Container>
             <h1>Nova entrada</h1>
-            <Form>
-                <input type="number" onChange={handleForm} value={form.price} required step="0.01" name="price" min="0.01" placeholder="Valor" />
-                <input type="text" onChange={handleForm} value={form.description} required name="description" placeholder="Descrição" />
+            <Form onSubmit={handleNewEntry}>
+                <input type="number" name="price" value={form.price} step="0.01" min="0.01" onChange={handleForm} placeholder="Valor" required />
+                <input type="text" name="description" value={form.description} onChange={handleForm} placeholder="Descrição" />
                 <button type="submit">Salvar entrada</button>
             </Form>
         </Container>

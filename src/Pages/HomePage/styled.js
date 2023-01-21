@@ -37,6 +37,19 @@ export const ContainerRegistos = styled.div`
     top: 78px;
     background: #FFFFFF;
     border-radius: 5px;
+    span {
+        position: absolute;
+        width: 180px;
+        height: 46px;
+        left: 73px;
+        top: 200px;
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        text-align: center;
+        color: #868686;
+    }
 `
 
 export const ContainerEntradas = styled.div`
@@ -45,6 +58,9 @@ export const ContainerEntradas = styled.div`
 `
 
 export const ContainerNovaEntrada = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     position: absolute;
     width: 155px;
     height: 114px;
@@ -72,10 +88,13 @@ export const ContainerNovaEntrada = styled.div`
 `
 
 export const ContainerNovaSaida = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     position: absolute;
     width: 155px;
     height: 114px;
-    right: 25px;
+    left: 195px;
     top: 537px;
     background: #A328D6;
     border-radius: 5px;
@@ -95,5 +114,71 @@ export const ContainerNovaSaida = styled.div`
         font-size: 17px;
         line-height: 20px;
         color: #FFFFFF;
+    }
+`
+
+export const ItemExtrato = styled.div`
+display: flex;
+justify-content: space-between;
+width: 326px;
+padding-left: 12px;
+margin-top: 23px;
+box-sizing: border-box;
+color: ${props => props.cor === "entrada" ? "#03AC00" : "#C70000"};
+`
+
+export const Data = styled.p`
+    width: 48px;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #C6C6C6;
+`
+
+export const Descricao = styled.p`
+    width: 145px;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+`
+
+export const Valor = styled.p`
+    width: 62px;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+`
+
+export const Saldo = styled.div`
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 298px;
+    left: 5px;
+    top: 395px;
+    padding-left: 12px;
+    margin-top: 23px;
+    box-sizing: border-box;
+    h1 {
+        width: 57px;
+        height: 20px;
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 17px;
+        color: #000000;
+        line-height: 20px;
+    }
+    h2 {
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 20px;
+        color: ${props => props.corTotal > 0 ? "#C70000" : "#03AC00"};
     }
 `
