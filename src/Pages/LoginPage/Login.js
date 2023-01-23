@@ -6,7 +6,7 @@ import { Container, Form } from "./styled"
 
 export default function Login() {
 
-    const { setUser } = useContext(UserContext)
+    const { user, setUser } = useContext(UserContext)
     const navigate = useNavigate()
     const [form, setForm] = useState({
         email: "",

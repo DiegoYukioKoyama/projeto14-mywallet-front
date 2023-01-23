@@ -9,12 +9,12 @@ function createConfig(token) {
 }
 
 function newEntry(body, token) {
-    const promise = axios.post(`${process.env.REACT_APP_API_URL}/nova-entrada`, body, createConfig(token))
+    const promise = axios.post(`${process.env.REACT_APP_API_URL}/home/entry`, body, createConfig(token))
     return promise
 }
 
 function novaSaida(body, token) {
-    const promise = axios.post(`${process.env.REACT_APP_API_URL}/nova-entrada`, body, createConfig(token))
+    const promise = axios.post(`${process.env.REACT_APP_API_URL}/home/output`, body, createConfig(token))
     return promise
 }
 

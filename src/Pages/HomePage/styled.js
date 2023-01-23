@@ -37,6 +37,7 @@ export const ContainerRegistos = styled.div`
     top: 78px;
     background: #FFFFFF;
     border-radius: 5px;
+    box-sizing: border-box;
     span {
         position: absolute;
         width: 180px;
@@ -124,7 +125,7 @@ width: 326px;
 padding-left: 12px;
 margin-top: 23px;
 box-sizing: border-box;
-color: ${props => props.cor === "entrada" ? "#03AC00" : "#C70000"};
+color: ${props => props.cor === "entry" ? "#03AC00" : "#C70000"};
 `
 
 export const Data = styled.p`
@@ -171,7 +172,6 @@ export const Saldo = styled.div`
         font-weight: 700;
         font-size: 17px;
         color: #000000;
-        line-height: 20px;
     }
     h2 {
         font-family: 'Raleway';

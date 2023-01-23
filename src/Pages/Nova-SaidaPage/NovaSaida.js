@@ -9,7 +9,7 @@ export default function NovaSaida(){
     const {user} = useContext(UserContext)
     const navigate = useNavigate()
     const [form, setForm] = useState({
-        price: "",
+        value: "",
         description: ""
     })
 
@@ -21,6 +21,7 @@ export default function NovaSaida(){
     }
 
     function handleNovaSaida(e) {
+        e.preventDefault()
         apiEntry.novaSaida(form, user.token)
             .then(resp => {
                 navigate("/home")
@@ -38,7 +39,7 @@ export default function NovaSaida(){
         <Container>
             <h1>Nova saída</h1>
             <Form onSubmit={handleNovaSaida}>
-                <input type="number" onChange={handleForm} value={form.price} required step="0.01" name="price" min="0.01" placeholder="Valor" />
+                <input type="number" onChange={handleForm} value={form.value} required step="0.01" name="value" min="0.01" placeholder="Valor" />
                 <input type="text" onChange={handleForm} value={form.description} required name="description" placeholder="Descrição" />
                 <button type="submit">Salvar entrada</button>
             </Form>

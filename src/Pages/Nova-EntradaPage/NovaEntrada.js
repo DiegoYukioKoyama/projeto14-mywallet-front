@@ -8,7 +8,7 @@ import { Container, Form } from "./styled";
 export default function NovaEntrada() {
 
     const [form, setForm] = useState({
-        price: "",
+        value: "",
         description: ""
     })
 
@@ -24,6 +24,7 @@ export default function NovaEntrada() {
     }
 
     function handleNewEntry(e) {
+        e.preventDefault()
         apiEntry.newEntry(form, user.token)
             .then(resp => {
                 navigate("/home")
@@ -32,7 +33,7 @@ export default function NovaEntrada() {
                 if (!user.token) {
                     alert("Faça login")
                 } else {
-                    alert(err.response.data.message)
+                    alert("Não foi possível adicionar uma nova entrada")
                 }
             })
     }
@@ -41,7 +42,7 @@ export default function NovaEntrada() {
         <Container>
             <h1>Nova entrada</h1>
             <Form onSubmit={handleNewEntry}>
-                <input type="number" name="price" value={form.price} step="0.01" min="0.01" onChange={handleForm} placeholder="Valor" required />
+                <input type="number" name="value" value={form.value} step="0.01" min="0.01" onChange={handleForm} placeholder="Valor" required />
                 <input type="text" name="description" value={form.description} onChange={handleForm} placeholder="Descrição" />
                 <button type="submit">Salvar entrada</button>
             </Form>
